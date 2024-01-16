@@ -1,1 +1,3 @@
 # firstgame
+
+I hate coding
