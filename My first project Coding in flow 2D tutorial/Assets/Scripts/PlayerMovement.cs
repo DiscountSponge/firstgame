@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]private float movespeed = 7f; // this allows us to change the values in unity
     [SerializeField]private float jumpforce = 14f;
+
+    private enum MovementState {idle, Running, Jumping, Falling }
+    private MovementState state = MovementState.idle;
     // Start is called before the first frame update
     private void Start()
     {
