@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]private float jumpforce = 14f;
     [SerializeField] private LayerMask jumpableground;
     private enum MovementState {idle, Running, Jumping, Falling }
+
+
+    [SerializeField] private AudioSource JumpingSoundEffect;
     // Start is called before the first frame update
     private void Start()
     {
@@ -31,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(dirX * movespeed, rb.velocity.y); //this cuts down on the amount of code needed and gives joystick support
         if (Input.GetButtonDown("Jump") && IsGrounded()) // uses Unitys in built movement systems
         {
+            JumpingSoundEffect.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumpforce);
         }
         UpdateAnimationUpdate();
